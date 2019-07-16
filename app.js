@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const ExpressValidator = require('express-validator');
+const cors = require('cors');
 require('dotenv').config();
 
 // import routes
@@ -26,6 +27,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(ExpressValidator());
+app.use(cors()); //this will help connect to the front end localhost 3000
 
 //routes middleware
 app.use('/api', authRoutes);
